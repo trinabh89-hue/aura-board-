@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aura Board</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Aura Board home">Aura Board</a>
+      <nav aria-label="Sections">
+        <a href="#board">Board</a>
+        <a href="#upload">Photo Titles</a>
+        <a href="#music">Music</a>
+        <a href="#share">Share</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">yope snap energy / pinterest board / funky charms</p>
+          <h1>your personal aesthetic pinboard</h1>
+          <p>
+            Drop in photos, watch them become titled pins, then soundtrack the
+            mood like a story before you post it.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#upload">Add photos</a>
+            <a class="secondary-action" href="#music">Add sound</a>
+            <a class="secondary-action" href="#share">Share link</a>
+          </div>
+        </div>
+
+        <div class="hero-board" aria-label="Aesthetic preview collage">
+          <div class="story-rail" aria-hidden="true">
+            <span>me</span>
+            <span>fit</span>
+            <span>mood</span>
+          </div>
+          <article class="hero-pin hero-pin-a">
+            <span class="charm charm-star"></span>
+            <strong>Midnight Muse</strong>
+          </article>
+          <article class="hero-pin hero-pin-b">
+            <span class="charm charm-ring"></span>
+            <strong>Chrome Diary</strong>
+          </article>
+          <article class="hero-pin hero-pin-c">
+            <span class="charm charm-bolt"></span>
+            <strong>Soft Signal</strong>
+          </article>
+          <article class="hero-pin hero-pin-d">
+            <span class="charm charm-flower"></span>
+            <strong>Cloud Charm</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="board" class="section board-section">
+        <div class="section-heading">
+          <p class="kicker">your board</p>
+          <h2>pinterest-ish pins</h2>
+          <p>Fresh uploaded photos land here with their own titles, moods, and little charm tags.</p>
+        </div>
+
+        <div class="masonry" id="pinBoard" aria-live="polite">
+          <article class="pin sample-a">
+            <div class="pin-image"></div>
+            <div class="pin-copy">
+              <p>deep / cool / muted</p>
+              <h3>Blue Hour Fit</h3>
+              <div class="charms"><span>moon pin</span><span>navy thread</span></div>
+            </div>
+          </article>
+          <article class="pin sample-b">
+            <div class="pin-image"></div>
+            <div class="pin-copy">
+              <p>bright / warm / vivid</p>
+              <h3>Glossy Daydream</h3>
+              <div class="charms"><span>pearl pin</span><span>sticker stack</span></div>
+            </div>
+          </article>
+          <article class="pin sample-c">
+            <div class="pin-image"></div>
+            <div class="pin-copy">
+              <p>bright / cool / vivid</p>
+              <h3>Chrome Crush</h3>
+              <div class="charms"><span>steel lace</span><span>blue stone</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="upload" class="section upload-section">
+        <div class="upload-panel">
+          <div class="upload-copy">
+            <p class="kicker">photo title maker</p>
+            <h2>give every photo an aura name</h2>
+            <p>
+              Choose one image or a whole batch. The page reads the colors and
+              creates a personalized title, mood line, and charm set for each pin.
+            </p>
+          </div>
+          <label class="file-drop" for="photoInput" id="photoDrop">
+            <input id="photoInput" type="file" accept="image/*" multiple>
+            <span>Add photos</span>
+            <small>drag images here or browse</small>
+          </label>
+        </div>
+      </section>
+
+      <section id="music" class="section music-section">
+        <div class="music-copy">
+          <p class="kicker">story soundtrack</p>
+          <h2>add music like a story</h2>
+          <p>
+            Search a song or artist, pick a result, and it plays inside this
+            page. No music platform opens.
+          </p>
+        </div>
+
+        <div class="music-studio">
+          <div class="story-phone">
+            <div class="story-bars" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="story-preview">
+              <span class="story-sticker">AURA CAM</span>
+              <span class="music-sticker" id="musicSticker">Search a song</span>
+            </div>
+          </div>
+
+          <div class="sound-panel">
+            <div class="sound-now">
+              <div class="record is-paused" id="record" aria-hidden="true"><span></span></div>
+              <div>
+                <p class="sound-label">now selected</p>
+                <h3 id="trackTitle">Search a song</h3>
+                <p id="trackDescription">choose a song result to play its available preview.</p>
+              </div>
+            </div>
+
+            <form class="song-search" id="songSearch">
+              <label for="songQuery">Search song or artist</label>
+              <div class="song-search-row">
+                <input id="songQuery" type="search" placeholder="search any song or artist..." autocomplete="off">
+                <button type="submit">Find</button>
+              </div>
+              <div class="song-results" id="songResults" aria-live="polite"></div>
+            </form>
+
+            <div class="player-controls">
+              <button id="playSound" class="play-button" type="button" aria-pressed="false">Play</button>
+              <label class="volume-control">
+                Volume
+                <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.55">
+              </label>
+            </div>
+
+            <label class="audio-drop" for="audioInput" id="audioDrop">
+              <input id="audioInput" type="file" accept="audio/*">
+              <span>Use my own sound</span>
+              <small>upload an audio file for the story soundtrack</small>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section id="share" class="section share-section">
+        <div class="share-panel">
+          <div class="share-copy">
+            <p class="kicker">friend link</p>
+            <h2>share your aura room</h2>
+            <p>
+              Copy your board link or open the share sheet. Friends can open the
+              same page, build their own pins, and play the story soundtrack too.
+            </p>
+          </div>
+
+          <div class="share-card">
+            <div class="share-preview" aria-hidden="true">
+              <span class="share-avatar">you</span>
+              <span class="share-avatar">bff</span>
+              <span class="share-avatar">mood</span>
+            </div>
+            <label class="share-link-label" for="shareLink">Board link</label>
+            <div class="share-link-row">
+              <input id="shareLink" type="text" readonly value="">
+              <button id="copyLink" type="button">Copy</button>
+            </div>
+            <div class="share-actions">
+              <button id="nativeShare" type="button">Share</button>
+              <a id="openBoardLink" href="#home">Open board</a>
+            </div>
+            <p id="shareStatus" class="share-status" aria-live="polite">ready to send</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Aura Board, made for smooth scrolling, titled memories, and story-worthy sounds.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
