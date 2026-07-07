@@ -116,8 +116,8 @@
           <p class="kicker">story soundtrack</p>
           <h2>add music like a story</h2>
           <p>
-            Search a song or artist, pick a result, and it plays inside this
-            page. No music platform opens.
+            Search any song by any artist, tap a result, and it starts playing
+            right inside this page. No music platform opens.
           </p>
         </div>
 
@@ -134,19 +134,20 @@
             <div class="sound-now">
               <div class="record is-paused" id="record" aria-hidden="true"><span></span></div>
               <div>
-                <p class="sound-label">now selected</p>
-                <h3 id="trackTitle">Search a song</h3>
-                <p id="trackDescription">choose a song result to play its available preview.</p>
+                <p class="sound-label">now playing</p>
+                <h3 id="trackTitle">Nothing yet</h3>
+                <p id="trackDescription">search below and tap a song to start the soundtrack.</p>
               </div>
             </div>
 
             <form class="song-search" id="songSearch">
               <label for="songQuery">Search song or artist</label>
               <div class="song-search-row">
-                <input id="songQuery" type="search" placeholder="search any song or artist..." autocomplete="off">
+                <input id="songQuery" type="search" placeholder="search any song, any artist..." autocomplete="off">
                 <button type="submit">Find</button>
               </div>
-              <div class="song-results" id="songResults" aria-live="polite"></div>
+              <p class="song-status" id="songStatus" aria-live="polite"></p>
+              <ul class="song-results" id="songResults" aria-live="polite"></ul>
             </form>
 
             <div class="player-controls">
